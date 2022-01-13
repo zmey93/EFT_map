@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Карта Леса</title>
+    
+  </head>
+  
+  <body class="bg-dark">
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark border-bottom border-secondary">
+      <a class="navbar-brand" href="tarkov-maps.html">Tarkov Maps</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Карты
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="customs-map.html">Таможня</a>
+              <a class="dropdown-item" href="factory-map.html">Завод</a>
+              <a class="dropdown-item" href="interchange-map.html">Развязка</a>
+              <a class="dropdown-item" href="the-lab-map.html">Лаборатория</a>
+              <a class="dropdown-item" href="reserve-map.html">Резерв</a>
+              <a class="dropdown-item" href="shoreline-map.html">Берег</a>
+              <a class="dropdown-item" href="woods-map.html">Лес</a>
+			  <a class="dropdown-item" href="lighthouse-map.html">Маяк</a>
+            </div>
+          </li>
+      </div>
+    </nav>
+    
+    <div id="text">
+	<script>
+    function addOnWheel(elem, handler) {
+      if (elem.addEventListener) {
+        if ('onwheel' in document) {
+          // IE9+, FF17+
+          elem.addEventListener("wheel", handler);
+        } else if ('onmousewheel' in document) {
+          // устаревший вариант события
+          elem.addEventListener("mousewheel", handler);
+        } else {
+          // 3.5 <= Firefox < 17, более старое событие DOMMouseScroll пропустим
+          elem.addEventListener("MozMousePixelScroll", handler);
+        }
+      } else { // IE8-
+        text.attachEvent("onmousewheel", handler);
+      }
+    }
+
+    var scale = 1;
+
+    addOnWheel(text, function(e) {
+      var delta = e.deltaY || e.detail || e.wheelDelta;
+
+      // отмасштабируем при помощи CSS
+      if (delta > 0) {
+      	scale -= 0.15;
+        if (scale < 1) scale = 1;
+      } else {
+      	scale += 0.15;
+      }
+
+      text.style.transform = text.style.WebkitTransform = text.style.MsTransform = 'scale(' + scale + ')';
+
+      // отменим прокрутку
+      e.preventDefault(scale < 0.870);
+    });
+
+  </script>
+      <img class="mx-auto d-block" src="assets/images/woods.jpg" style="max-height: 94vh; max-width: 100%;">
+    
+	</div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+  
+</html>
